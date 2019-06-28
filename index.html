@@ -1,0 +1,140 @@
+<head>
+  <style>
+    header {
+      text-align: center;
+    }
+    nav {
+      display: flex;
+      justify-content: space-evenly;
+    }
+
+    footer {
+      border: solid 1px lightgray;
+      margin-top: 40px;
+      padding: 5px;
+    }
+
+    label[for="feelings-textarea"] {
+      display: block;
+    }
+
+    input[type="radio"] {
+      margin-right: 20px;
+    }
+
+    form {
+      border: solid 1px lightgray;
+      padding: 20px;
+    }
+
+    form textarea,
+    form fieldset {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HTML Apprentice Badge Pages</h1>
+  </header>
+  <main>
+    <h2>Semantic HTML</h2>
+    <h3>Headings</h3>
+    <p>This page uses heading elements (h1-h3) in descending order without skipping levels.</p>
+    <h3>Landmark elements</h3>
+    <p>The header, main, footer and nav elements create landmark elements in this page.</p>
+    <h3>Lists</h3>
+    <p>Examples of lists are shown below using ul, ol, li, dl, dt and dd tags.</p>
+
+    <h4>Unordered List</h4>
+    Cultivars of Brassica oleracea
+    <ul>
+      <li>Cabbage</li>
+      <li>Gai lan</li>
+      <li>Collard greens</li>
+      <li>Kale</li>
+      <li>Brussels sprout</li>
+      <li>Kohlrabi</li>
+      <li>Broccoli</li>
+      <li>Cauliflower</li>
+    </ul>
+
+    <h4>Ordered List</h4>
+    Best-Selling Nintendo 64 Games
+    <ol>
+      <li>Super Mario 64</li>
+      <li>Mario Kart 64</li>
+      <li>GoldenEye 007</li>
+      <li>The Legend of Zelda: Ocarina of Time</li>
+      <li>Super Smash Bros.</li>
+    </ol>
+
+    <h4>Description List</h4>
+    <dl>
+      <dt>Hunky Punk</dt>
+      <dd>
+        Somerset dialect for grotesque carvings on the side of buildings, especially Late Gothic
+        churches.
+      </dd>
+      <dt>Hinkypunk</dt>
+      <dd>
+        An atmospheric ghost light seen by travelers at night, especially over bogs, swamps or
+        marshes.
+      </dd>
+    </dl>
+
+    <h3>Forms, Labels and Fieldsets</h3>
+    <p>The form below uses labels and a fieldset to better structure its content.</p>
+
+    <form>
+      <label for="feelings-textarea"> How are you feeling today?</label>
+      <textarea id="feelings-textarea" rows="10" cols="50"></textarea>
+
+      <fieldset>
+        <legend>T-Shirt Size</legend>
+
+        <label for="shirt-s">Small</label>
+        <input id="shirt-s" type="radio" name="shirt-radio" />
+
+        <label for="shirt-m">Medium</label>
+        <input id="shirt-m" type="radio" name="shirt-radio" />
+
+        <label for="shirt-l">Large</label>
+        <input id="shirt-l" type="radio" name="shirt-radio" />
+
+        <label for="shirt-xl">Extra Large</label>
+        <input id="shirt-xl" type="radio" name="shirt-radio" />
+      </fieldset>
+
+      <label for="country">Country</label>
+
+      <select name="country" id="country">
+        <optgroup label="Europe">
+          <option value="UK">UK</option>
+          <option value="Germany">Germany</option>
+          <option value="France">France</option>
+        </optgroup>
+        <optgroup label="North America">
+          <option value="">USA</option>
+          <option value="">Canada</option>
+        </optgroup>
+      </select>
+    </form>
+
+    <h3>Buttons and Links</h3>
+    <p>
+      Buttons trigger an action and links navigate to a new page. This link and button are styled
+      differently to make it clearer what will happen when they are clicked.
+    </p>
+    <button type="button" onclick="console.log('Button Clicked!')">Log to Console Button</button>
+    <a href="https://www.google.com">Link to Google</a>
+  </main>
+  <footer>
+    <nav>
+      <a>Semantic HTML</a>
+      <a href="picture.html">Picture Element & srcset</a>
+      <a href="svg.html">SVG</a>
+      <a href="device.html">Device Access</a>
+    </nav>
+  </footer>
+</body>
