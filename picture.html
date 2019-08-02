@@ -1,0 +1,31 @@
+<style>
+  img {
+    width: 100%;
+  }
+</style>
+
+<h1>Using the picture element to vary images for different viewport conditions (art direction)</h1>
+
+<picture>
+  <source srcset="guinea.webp" media="(min-width: 800px" type="image/webp">
+  <source srcset="guinea.jpg" media="(min-width: 800px)">
+  <img src="cropped.jpg" />
+</picture>
+
+
+<h1>Using the srcset attribute to vary image resolutions for different viewport conditions</h1>
+
+<img src="hummingbird_400.jpg" srcset="
+  hummingbird_400.jpg 400w,
+  hummingbird_800.jpg 800w,
+  hummingbird_1200.jpg 1200w,
+  hummingbird_1595.jpg 1595w">
+
+
+
+<h1>Using the picture element to conditionally load .webp files</h1>
+
+<picture>
+  <source srcset="octopus.webp" type="image/webp">
+  <img src="octopus.jpg">
+</picture>
