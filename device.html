@@ -20,13 +20,15 @@
   let touchCount = 0;
   const touchCountDiv = document.getElementById('touch-count');
   const touchDiv = document.getElementById('touch-div');
-  touchDiv.addEventListener('touchStart', () => {
+  touchDiv.addEventListener('touchStart', (e) => {
+    e.preventDefault();
     touchCount++;
-    touchCountDiv.innerHTML = touchCount;
+    touchCountDiv.innerText = touchCount;
   })
-  touchDiv.addEventListener('touchEnd', () => {
+  touchDiv.addEventListener('touchEnd', (e) => {
+    e.preventDefault();
     touchCount--;
-    touchCountDiv.innerHTML = touchCount;
+    touchCountDiv.innerText = touchCount;
   })
 
 </script>
