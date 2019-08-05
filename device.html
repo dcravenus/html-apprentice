@@ -1,13 +1,5 @@
-<style>
-  #touch-div {
-    height: 300px;
-    width: 300px;
-    background-color: lightcoral;
-  }
-</style>
-
 <h1>Touch Events</h1>
-<div id="touch-div"><span id="touch-count"></span></div>
+<p>See the FamilyTree portrait picker for an example of touch events.</p>
 
 
 <h1>Geolocation</h1>
@@ -19,28 +11,13 @@
 
 <h1>Vibration</h1>
 <button type="button" onclick="vibrate()">Vibrate</button>
+<p id="vibration-div"></p>
 
 <h1>Ambient Light</h1>
 <p id="ambient-light-div"></p>
 
 
 <script>
-  let touchCount = 0;
-  const touchCountDiv = document.getElementById('touch-count');
-  const touchDiv = document.getElementById('touch-div');
-  touchDiv.addEventListener('touchStart', (e) => {
-    e.preventDefault();
-    touchCount++;
-    touchCountDiv.innerText = touchCount;
-  })
-  touchDiv.addEventListener('touchEnd', (e) => {
-    e.preventDefault();
-    touchCount--;
-    touchCountDiv.innerText = touchCount;
-  })
-
-
-
   const geolocationDiv = document.getElementById('geolocation-div');
   function getLocation() {
     if ('geolocation' in navigator) {
@@ -58,9 +35,16 @@
   window.addEventListener('deviceorientation', updateOrientation);
 
 
+  const vibrationDiv = document.getElementById('vibration-div');
   function vibrate() {
     navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
-    navigator.vibrate([200, 100, 200]);
+    if (navigator.vibrate) {
+      navigator.vibrate(100);
+      vibrationDiv.innerText = 'Vibration API supported. Your device will vibrate if vibration is supported.';
+    }
+    else {
+      vibrationDiv.innerText = 'Vibration not supported';
+    }
   }
 
 
@@ -69,7 +53,11 @@
     ambientLightDiv.innerText = e.value;
   }
   if ('ondevicelight' in window) {
+    ambientLightDiv.innerText = 'Ambient light API supported. Light values will be displayed if ambient light is supported. '
+
     window.addEventListener('devicelight', updateDeviceLight);
+  } else {
+    ambientLightDiv.innerText = 'Ambient light API not supported'
   }
 
 </script>
