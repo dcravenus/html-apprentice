@@ -11,10 +11,18 @@
 
 
 <h1>Geolocation</h1>
+<button type="button" onclick="getLocation()">Get Location</button>
+<p id="geolocation-div"></p>
+
 <h1>Device Orientation</h1>
+<p id="orientation-div"></p>
+
 <h1>Vibration</h1>
+<button type="button" onclick="vibrate()">Vibrate</button>
+
 <h1>Ambient Light</h1>
-<h1>Proximity</h1>
+<p id="ambient-light-div"></p>
+
 
 <script>
   let touchCount = 0;
@@ -30,5 +38,38 @@
     touchCount--;
     touchCountDiv.innerText = touchCount;
   })
+
+
+
+  const geolocationDiv = document.getElementById('geolocation-div');
+  function getLocation() {
+    if ('geolocation' in navigator) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        geolocationDiv.innerText = `Latitude: ${position.coords.latitude}\nLongitude: ${position.coords.longitude}`;
+      })
+    }
+  }
+
+
+  const orientationDiv = document.getElementById('orientation-div');
+  const updateOrientation = (e) => {
+    orientationDiv.innerText = Math.round(e.alpha);
+  }
+  window.addEventListener('deviceorientation', updateOrientation);
+
+
+  function vibrate() {
+    navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
+    navigator.vibrate([200, 100, 200]);
+  }
+
+
+  const ambientLightDiv = document.getElementById('ambient-light-div');
+  const updateDeviceLight = (e) => {
+    ambientLightDiv.innerText = e.value;
+  }
+  if ('ondevicelight' in window) {
+    window.addEventListener('devicelight', updateDeviceLight);
+  }
 
 </script>
