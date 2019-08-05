@@ -1,0 +1,32 @@
+<style>
+  #touch-div {
+    height: 300px;
+    width: 300px;
+    background-color: lightcoral;
+  }
+</style>
+
+<h1>Touch Events</h1>
+<div id="touch-div"><span id="touch-count"></span></div>
+
+
+<h1>Geolocation</h1>
+<h1>Device Orientation</h1>
+<h1>Vibration</h1>
+<h1>Ambient Light</h1>
+<h1>Proximity</h1>
+
+<script>
+  let touchCount = 0;
+  const touchCountDiv = document.getElementById('touch-count');
+  const touchDiv = document.getElementById('touch-div');
+  touchDiv.addEventListener('touchStart', () => {
+    touchCount++;
+    touchCountDiv.innerHTML = touchCount;
+  })
+  touchDiv.addEventListener('touchEnd', () => {
+    touchCount--;
+    touchCountDiv.innerHTML = touchCount;
+  })
+
+</script>
